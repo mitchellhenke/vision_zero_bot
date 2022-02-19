@@ -1,5 +1,5 @@
 # vision_zero_bot
-A Twitter bot to automatically send out Vision-Zero-related tweets for Madison, using R and GitHub actions.
+A Twitter bot to automatically send out Vision-Zero-related tweets for Milwaukee, using R and GitHub actions.
 
 The instructions [here](https://www.rostrum.blog/2020/09/21/londonmapbot/) were very helpful in figuring this out.
 
@@ -7,7 +7,7 @@ The instructions [here](https://www.rostrum.blog/2020/09/21/londonmapbot/) were 
 The bot is in production status, tweeting a summary tweet once a week on Wednesdays.
 
 ## Data
-The bot uses data from [Community Maps](https://transportal.cee.wisc.edu/partners/community-maps/crash/search/BasicSearch.do) to gather information about traffic crashes in Madison.
+The bot uses data from [Community Maps](https://transportal.cee.wisc.edu/partners/community-maps/crash/search/BasicSearch.do) to gather information about traffic crashes in Milwaukee.
 
 > Community Maps provides a statewide map of all police reported motor vehicle crashes in Wisconsin from 2010 to the current year. Fatal crashes are included from 2001. Crashes occurring on or after January 1, 2017 are mapped using geo-coded locations from the Wisconsin DT4000 police crash report. Prior year crashes have been geo-coded from the crash report location descriptions. Crashes that have not been geo-coded are not displayed on the map. Community Maps is maintained by the Wisconsin Traffic Operations and Safety (TOPS) Laboratory for research purposes and as a service to the Wisconsin Department of Transportation Bureau of Transportation Safety. See Community Maps for more information: https://CommunityMaps.wi.gov/.
 

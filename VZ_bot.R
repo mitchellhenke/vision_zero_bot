@@ -16,7 +16,7 @@ vzbot_token <-create_token(
 
 
 
-download.file("https://CommunityMaps.wi.gov/crash/public/crashesKML.do?filetype=json&startyear=2022&injsvr=K&injsvr=A&county=dane", "crashes.json")
+download.file("https://CommunityMaps.wi.gov/crash/public/crashesKML.do?filetype=json&startyear=2022&injsvr=K&injsvr=A&county=milwaukee", "crashes.json")
 df <- st_read("crashes.json")
 
 
@@ -43,7 +43,7 @@ crashes <- df %>%
 crashesJSON <- fromJSON("crashes.json")
 crashes <- crashes %>%
   add_column(crashesJSON$features$properties) %>%
-  filter(muniname == "MADISON")
+  filter(muniname == "MILWAUKEE")
 
 crashes_wk <- crashes %>%
   filter(date %within% last_week)
@@ -67,7 +67,7 @@ tot_inj_yr <- crashes %>%
   pull()
 
 
-tweet_1 <- paste0("Last week in Madison (",
+tweet_1 <- paste0("Last week in Milwaukee (",
                   last_week_formatted,
                   "), there were ",
                 tot_fat_wk,
