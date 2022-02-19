@@ -20,3 +20,5 @@ Once a week, triggered by a cron job via Github actions, injury and fatality dat
 - [ ] tweet other Vision Zero related messages?
 - [ ] automatically retweet tweets located in Madison and tagged #VisionZero?
 If you have suggestions for a feature, create an issue in the repository!
+
+
