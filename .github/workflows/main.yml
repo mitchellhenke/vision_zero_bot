@@ -1,7 +1,8 @@
 name: visionzerobot
 
 on:
-  - push
+  schedule:
+    - cron: '33 17 * * Wed'
 
 
 jobs:
