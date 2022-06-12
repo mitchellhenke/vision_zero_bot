@@ -118,4 +118,3 @@ image_write(tweet_1_img,
 # download.file("https://haraldkliems.netlify.app/posts/do-crashes-have-a-history/img/montreal_map.png", temp_file)
 
 post_tweet(status = tweet_1)
-
