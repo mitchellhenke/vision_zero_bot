@@ -4,14 +4,6 @@ defmodule Mix.Tasks.VisionZeroBot.PostUpdate do
   def run(_args) do
     Mix.Task.run("app.start")
 
-    String.slice(System.fetch_env!("TWITTER_ACCESS_TOKEN"), 0, 10)
-    |> IO.inspect
-    String.slice(System.fetch_env!("TWITTER_ACCESS_TOKEN_SECRET"), 0, 10)
-    |> IO.inspect
-    String.slice(System.fetch_env!("TWITTER_CONSUMER_API_KEY"), 0, 10)
-    |> IO.inspect
-    String.slice(System.fetch_env!("TWITTER_CONSUMER_API_SECRET"), 0, 10)
-    |> IO.inspect
     ExTwitter.configure(
       consumer_key: System.fetch_env!("TWITTER_ACCESS_TOKEN"),
       consumer_secret: System.fetch_env!("TWITTER_ACCESS_TOKEN_SECRET"),
