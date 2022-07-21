@@ -18,15 +18,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: erlef/setup-beam@v1
         with:
-          otp-version: '24'
+          otp-version: '23'
           elixir-version: '1.13'
       - name: Install required packages
         run: mix deps.get
-      - name: Set up secret file
-        run: |
-          echo $TWITTER_CONSUMER_API_KEY >> secrets.txt
-          echo $TWITTER_CONSUMER_API_SECRET >> secrets.txt
-          echo $TWITTER_ACCESS_TOKEN >> secrets.txt
-          echo $TWITTER_ACCESS_TOKEN_SECRET >> secrets.txt
-      - name: Run tmate
-        uses: mxschmitt/action-tmate@v2
+      - name: Create and post tweet
+        run: mix vision_zero_bot.post_update
