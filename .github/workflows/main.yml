@@ -8,7 +8,7 @@ on:
 
 jobs:
   visionzerobot-post:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     env:
       TWITTER_CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
       TWITTER_CONSUMER_API_SECRET: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
@@ -16,8 +16,11 @@ jobs:
       TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_CONSUMER_ACCESS_TOKEN_SECRET }}
     steps:
       - uses: actions/checkout@v2
-      - uses: r-lib/actions/setup-r@master
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: '24'
+          elixir-version: '1.13'
       - name: Install required packages
-        run: Rscript -e 'install.packages(c("dplyr", "tidyverse", "tibble", "rtweet", "sf", "lubridate", "jsonlite", "magick"), dependencies = TRUE)'
+        run: mix deps.get
       - name: Create and post tweet
-        run: Rscript VZ_bot.R
+        run: mix vision_zero_bot.post_update
