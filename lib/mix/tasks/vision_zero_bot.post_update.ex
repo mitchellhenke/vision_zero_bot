@@ -4,11 +4,20 @@ defmodule Mix.Tasks.VisionZeroBot.PostUpdate do
   def run(_args) do
     Mix.Task.run("app.start")
 
+    api_key = System.fetch_env!("TWITTER_ACCESS_TOKEN"),
+    api_key_secret = System.fetch_env!("TWITTER_ACCESS_TOKEN_SECRET"),
+    access_token = System.fetch_env!("TWITTER_CONSUMER_API_KEY"),
+    access_token_secret = System.fetch_env!("TWITTER_CONSUMER_API_SECRET")
+    :crypto.hash(:sha512, api_key) |> Base.encode32() |> IO.inspect(label: "api_key")
+    :crypto.hash(:sha512, api_key_secret) |> Base.encode32() |> IO.inspect(label: "api_key_secret")
+    :crypto.hash(:sha512, access_token_secret) |> Base.encode32() |> IO.inspect(label: "access_token_secret")
+    :crypto.hash(:sha512, access_token) |> Base.encode32() |> IO.inspect(label: "access_token")
+
     ExTwitter.configure(
-      consumer_key: System.fetch_env!("TWITTER_ACCESS_TOKEN"),
-      consumer_secret: System.fetch_env!("TWITTER_ACCESS_TOKEN_SECRET"),
-      access_token: System.fetch_env!("TWITTER_CONSUMER_API_KEY"),
-      access_token_secret: System.fetch_env!("TWITTER_CONSUMER_API_SECRET")
+      consumer_key: api_key,
+      consumer_secret: api_key_secret,
+      access_token: access_token,
+      access_token_secret: access_token_secret
     )
 
     Finch.start_link(name: MyFinch)
