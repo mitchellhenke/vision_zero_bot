@@ -86,7 +86,6 @@ defmodule Mix.Tasks.VisionZeroBot.PostUpdate do
       "#{Calendar.strftime(one_week_ago, "%m/%d")}-#{Calendar.strftime(today, "%m/%d")}"
 
     tweet = """
-    Last week in Milwaukee (#{last_week_formatted}), there were #{last_week_total_fatalities} traffic fatalities and #{last_week_total_injuries} serious injuries.
     Since the beginning of the year, traffic violence has killed #{yearly_total_fatalities} people and seriously injured #{yearly_total_injuries} people in our city.
     #VisionZero #StopTrafficViolence
     """
