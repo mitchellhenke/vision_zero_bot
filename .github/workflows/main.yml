@@ -3,6 +3,7 @@ name: visionzerobot
 on:
   schedule:
     - cron: '33 17 * * Wed'
+    - cron: '33 16 8 1 *'
   workflow_dispatch: ~
 
 
@@ -14,7 +15,30 @@ jobs:
       TWITTER_CONSUMER_API_SECRET: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
       TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_CONSUMER_ACCESS_TOKEN }}
       TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_CONSUMER_ACCESS_TOKEN_SECRET }}
+      SCHEDULE: 'WEEKLY'
     steps:
+      - name: Only weekly
+        if: github.event.schedule == '33 17 * * Wed'
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: '24.3'
+          elixir-version: '1.13'
+      - name: Install required packages
+        run: mix deps.get
+      - name: Create and post tweet
+        run: mix vision_zero_bot.post_update
+  visionzerobot-post-yearly:
+    runs-on: ubuntu-latest
+    env:
+      TWITTER_CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
+      TWITTER_CONSUMER_API_SECRET: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
+      TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_CONSUMER_ACCESS_TOKEN }}
+      TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_CONSUMER_ACCESS_TOKEN_SECRET }}
+      SCHEDULE: 'YEARLY'
+    steps:
+      - name: Only yearly
+        if: github.event.schedule == '33 17 8 1 *'
       - uses: actions/checkout@v2
       - uses: erlef/setup-beam@v1
         with:
