@@ -21,11 +21,10 @@ defmodule Mix.Tasks.VisionZeroBot.PostUpdate do
     )
 
     Finch.start_link(name: MyFinch)
+    today = Date.utc_today()
 
     url =
-      "https://transportal.cee.wisc.edu/partners/community-maps/crash/public/crashesKML.do?filetype=json&startyear=2022&injsvr=K&injsvr=A&county=milwaukee"
-
-    today = Date.utc_today()
+      "https://transportal.cee.wisc.edu/partners/community-maps/crash/public/crashesKML.do?filetype=json&startyear=#{today.year}&injsvr=K&injsvr=A&county=milwaukee"
 
     crashes =
       with req <- Finch.build(:get, url),
