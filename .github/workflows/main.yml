@@ -16,8 +16,6 @@ jobs:
       TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_CONSUMER_ACCESS_TOKEN_SECRET }}
       SCHEDULE: 'WEEKLY'
     steps:
-      - name: Only weekly
-        if: github.event.schedule == '33 17 * * Wed'
       - uses: actions/checkout@v2
       - uses: erlef/setup-beam@v1
         with:

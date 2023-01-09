@@ -2,7 +2,7 @@ name: visionzerobotyearly
 
 on:
   schedule:
-    - cron: '33 16 8 1 *'
+    - cron: '33 20 9 1 *'
   workflow_dispatch: ~
 
 
@@ -16,8 +16,6 @@ jobs:
       TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_CONSUMER_ACCESS_TOKEN_SECRET }}
       SCHEDULE: 'YEARLY'
     steps:
-      - name: Only yearly
-        if: github.event.schedule == '33 17 8 1 *'
       - uses: actions/checkout@v2
       - uses: erlef/setup-beam@v1
         with:
