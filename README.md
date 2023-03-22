@@ -15,8 +15,6 @@ The bot uses data from [Community Maps](https://transportal.cee.wisc.edu/partner
 Once a week, triggered by a cron job via Github actions, injury and fatality data is pulled from Community Maps. The bot posts a summary of the injuries and fatalities in the preceding week, as well as a running total of the calendar year and tweets that out. The tweet also includes an image with the same data.
 
 ## Potential future features
-- [x] include a graph or infographic with the information
-  - [ ] Could also be a map
 - [ ] tweet other Vision Zero related messages?
 - [ ] automatically retweet tweets located in Madison and tagged #VisionZero?
 If you have suggestions for a feature, create an issue in the repository!
