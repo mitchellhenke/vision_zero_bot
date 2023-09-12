@@ -44,7 +44,7 @@ defmodule Mix.Tasks.VisionZeroBot.PostUpdate do
         #VisionZero #StopTrafficViolence
         """
 
-        ExTwitter.update(tweet)
+        # ExTwitter.update(tweet)
         post_to_mastodon(tweet)
 
       System.get_env("SCHEDULE") == "YEARLY" ->
@@ -67,7 +67,7 @@ defmodule Mix.Tasks.VisionZeroBot.PostUpdate do
         #VisionZero #StopTrafficViolence
         """
 
-        ExTwitter.update(tweet)
+        # ExTwitter.update(tweet)
         post_to_mastodon(tweet)
     end
   end
